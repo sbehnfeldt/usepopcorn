@@ -19,3 +19,15 @@ You may also see any lint errors in the console.
 Passing a prop untouched through multiple levels of components.
 This occurs when two or more components require the same prop,
 but their common ancestor is more than a single level (or generation) away.
+
+### Lesson 111. Component Composition
+Define a React component with the {children} prop.  
+Then the contents of where the component is used
+are available to be used in the component definition.  
+Useful for creating flexible and reusable components.
+Also useful for fixing prop drilling.
+
+### Lesson 112. Fix Prop Drilling With  Composition (and Building a Layout)
+Eliminate prop drilling by moving descendents requiring those props 
+into the body of the common ancestor instance, then redefine the common ancestor
+to use the {children} prop.

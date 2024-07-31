@@ -55,19 +55,26 @@ const App = () => {
     const [movies, setMovies] = useState(tempMovieData);
     return (
         <>
-            <NavBar movies={movies}/>
-            <Main movies={movies}/>
+            <NavBar>
+                <SearchBox/>
+                <NumResults movies={movies}/>
+            </NavBar>
+            <Main>
+                <ListBox>
+                    <MovieList movies={movies}/>
+                </ListBox>
+                <WatchedBox/>
+            </Main>
         </>
     );
 }
 
 
-const NavBar = ({movies}) => {
+const NavBar = ({children}) => {
     return (
         <nav className="nav-bar">
             <Logo/>
-            <SearchBox/>
-            <NumResults movies={movies}/>
+            {children}
         </nav>
     )
 }
@@ -102,17 +109,16 @@ const NumResults = ({movies}) => {
     );
 }
 
-const Main = ({movies}) => {
+const Main = ({children}) => {
 
     return (
         <main className="main">
-            <ListBox movies={movies}/>
-            <WatchedBox/>
+            {children}
         </main>
     );
 }
 
-const ListBox = ({movies}) => {
+const ListBox = ({children}) => {
     const [isOpen1, setIsOpen1] = useState(true);
     return (
         <div className="box">
@@ -122,7 +128,7 @@ const ListBox = ({movies}) => {
             >
                 {isOpen1 ? "–" : "+"}
             </button>
-            {isOpen1 && <MovieList movies={movies}/>}
+            {isOpen1 && children}
         </div>
     )
 }
