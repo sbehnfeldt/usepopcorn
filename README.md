@@ -31,3 +31,19 @@ Also useful for fixing prop drilling.
 Eliminate prop drilling by moving descendents requiring those props 
 into the body of the common ancestor instance, then redefine the common ancestor
 to use the {children} prop.
+
+### Lesson 114. Passing Elements as Props (Alternative to children)
+Component composition can also be achieved by passing the contents 
+as a JSX value in a prop.
+
+### Lesson 115. Building a Reusable Star Rating Component
+Began building the component by creating a new JSX file for it 
+and defining placeholders for the stars and the numerical rating.
+Import that file into index.js (comment out the <App> for simplicity).
+Define CSS styles as JSON objects and include them 
+as the value of the "style" attribute in the appropriate element.
+(Define the JSON objects OUTSIDE the compopnent function 
+so that JS does not need to re-generate them every time the component is re-rendered).
+Define a "maxRating" prop in the StarRating definition
+to allow user to specify the rating scale.
+Provide a default value for the prop.
