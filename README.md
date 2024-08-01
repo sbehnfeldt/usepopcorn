@@ -47,3 +47,7 @@ so that JS does not need to re-generate them every time the component is re-rend
 Define a "maxRating" prop in the StarRating definition
 to allow user to specify the rating scale.
 Provide a default value for the prop.
+
+### Lesson 116: Creating the Stars
+Began building the StarRating component, replacing the placeholder asterisks with SVG star images
+and listening for click events on them to set the rating.
