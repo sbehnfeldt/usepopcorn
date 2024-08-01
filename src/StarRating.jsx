@@ -14,15 +14,6 @@ const starContainerStyle = {
     gap: '4px'
 };
 
-StarRating.propTypes = {
-    maxRating: PropTypes.number,
-    defaultRating: PropTypes.number,
-    color: PropTypes.string,
-    size: PropTypes.number,
-    messages: PropTypes.array,
-    onSetRating: PropTypes.func
-};
-
 const StarRating = (
     {
         maxRating = 5,
@@ -72,6 +63,16 @@ const StarRating = (
         </div>
     );
 };
+
+StarRating.propTypes = {
+    maxRating: PropTypes.number,
+    defaultRating: PropTypes.number,
+    color: PropTypes.string,
+    size: PropTypes.number,
+    messages: PropTypes.array,
+    onSetRating: PropTypes.func
+};
+
 
 const Star = ({isSolid, onRate, onHoverIn, onHoverOut, color, size}) => {
     const starStyle = {
