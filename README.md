@@ -48,19 +48,24 @@ Define a "maxRating" prop in the StarRating definition
 to allow user to specify the rating scale.
 Provide a default value for the prop.
 
-### Lesson 116: Creating the Stars
+### Lesson 116. Creating the Stars
 Began building the StarRating component, replacing the placeholder asterisks with SVG star images
 and listening for click events on them to set the rating.
 
-### Lesson 117: Handling Hover Events
+### Lesson 117. Handling Hover Events
 Star components listen for onMouseEnter and onMouseLeave events, setting a temporary hover rating
 on enter and clearing it on leave.  When the hover rating is set, use it (instead of the actual rating)
 to determine the number of full and outlined stars to draw in the star component.
 
-### Lesson 119: Improving Re-usability with Props
+### Lesson 119. Improving Re-usability with Props
 More props => more flexible component, but also more cumbersome. 
 
-### Lesson 120: PropTypes
+### Lesson 120. PropTypes
 Implement type checking on props with PropTypes. 
 import {PropTypes} from "prop-types";
 
+### Lesson 141. The Component Lifecycle
+1) Mount (initial render): instance rendered for the first time; fresh state and props created
+2) Re-render: Happens when state, props or context changes or when parent re-renders
+3) Unmount: instance destroyed and removed, state and props destroyed
+Code can be executed at any of these points with `useEffect()`
