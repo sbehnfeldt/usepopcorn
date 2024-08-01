@@ -60,3 +60,7 @@ to determine the number of full and outlined stars to draw in the star component
 ### Lesson 119: Improving Re-usability with Props
 More props => more flexible component, but also more cumbersome. 
 
+### Lesson 120: PropTypes
+Implement type checking on props with PropTypes. 
+import {PropTypes} from "prop-types";
+

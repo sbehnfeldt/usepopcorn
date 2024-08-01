@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {PropTypes} from "prop-types";
 
 
 // Place style objects OUTSIDE the component so JS does not re-generated them  every time the component is re-rendered
@@ -13,7 +14,24 @@ const starContainerStyle = {
     gap: '4px'
 };
 
-const StarRating = ({defaultRating = 0, maxRating = 5, color = '#fcc419', size = 48, messages = [], className = ""}) => {
+StarRating.propTypes = {
+    maxRating: PropTypes.number,
+    defaultRating: PropTypes.number,
+    color: PropTypes.string,
+    size: PropTypes.number,
+    messages: PropTypes.array,
+    onSetRating: PropTypes.func
+};
+
+const StarRating = (
+    {
+        maxRating = 5,
+        defaultRating = 0,
+        color = '#fcc419',
+        size = 48,
+        messages = [],
+        className = ""
+    }) => {
     const [rating, setRating]           = useState(defaultRating < maxRating ? defaultRating : 0);
     const [hoverRating, setHoverRating] = useState(null);
 
@@ -32,7 +50,7 @@ const StarRating = ({defaultRating = 0, maxRating = 5, color = '#fcc419', size =
         setHoverRating(rating);
     }
 
-    console.log( messages );
+    console.log(messages);
     return (
         <div style={containerStyle} className={className}>
             <div style={starContainerStyle}>
