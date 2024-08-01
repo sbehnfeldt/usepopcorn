@@ -5,11 +5,12 @@ import ReactDOM from 'react-dom/client';
 import StarRating from "./StarRating";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
-  <React.StrictMode>
-    {/*<App />*/}
-      <StarRating />
-      <StarRating maxRating={3} />
-      <StarRating maxRating={10} />
-  </React.StrictMode>
+    <React.StrictMode>
+        {/*<App />*/}
+        <StarRating messages={['Terrible', 'Poor', 'Okay', 'Good', 'Amazing']}/>
+        <StarRating maxRating={3}/>
+        <StarRating maxRating={10} defaultRating='4'/>
+    </React.StrictMode>
 );

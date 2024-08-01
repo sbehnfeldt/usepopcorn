@@ -57,4 +57,6 @@ Star components listen for onMouseEnter and onMouseLeave events, setting a tempo
 on enter and clearing it on leave.  When the hover rating is set, use it (instead of the actual rating)
 to determine the number of full and outlined stars to draw in the star component.
 
+### Lesson 119: Improving Re-usability with Props
+More props => more flexible component, but also more cumbersome. 
 
