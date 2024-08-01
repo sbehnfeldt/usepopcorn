@@ -51,3 +51,10 @@ Provide a default value for the prop.
 ### Lesson 116: Creating the Stars
 Began building the StarRating component, replacing the placeholder asterisks with SVG star images
 and listening for click events on them to set the rating.
+
+### Lesson 117: Handling Hover Events
+Star components listen for onMouseEnter and onMouseLeave events, setting a temporary hover rating
+on enter and clearing it on leave.  When the hover rating is set, use it (instead of the actual rating)
+to determine the number of full and outlined stars to draw in the star component.
+
+
