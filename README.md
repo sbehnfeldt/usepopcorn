@@ -93,3 +93,5 @@ so the callback function to `useEffect()` may not return a Promise.
 So instead create a new function with an async function inside.
 NOTE: In React's strict mode, effects run TWICE in development mode.
 
+### Lesson 147. Handling Errors
+When using async functions, assume things can go wrong and handle them.

@@ -56,15 +56,29 @@ const App = () => {
     const [movies, setMovies]       = useState([]);
     const [watched, setWatched]     = useState(tempWatchedData);
     const [isLoading, setIsLoading] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
     const query                     = 'interstellar';
 
     useEffect(() => {
         async function fetchMovies() {
-            setIsLoading(true);
-            const res  = await fetch(`http://www.omdbapi.com/?s=${query}&apikey=${apiKey}`);
-            const data = await res.json();
-            setMovies(data.Search);
-            setIsLoading(false);
+            try {
+                setErrorMsg('');
+                setIsLoading(true);
+                const res = await fetch(`http://www.omdbapi.com/?s=${query}&apikey=${apiKey}`);
+                if (!res.ok) {
+                    throw new Error('Something went wrong while fetching the movies')
+                }
+                const data = await res.json();
+                if ( data.Response !== 'True') {
+                    throw new Error( 'No matches found');
+                }
+                setMovies(data.Search);
+            } catch (err) {
+                console.error(err);
+                setErrorMsg(err.message);
+            } finally {
+                setIsLoading(false);
+            }
         };
         fetchMovies();
 
@@ -78,7 +92,9 @@ const App = () => {
             </NavBar>
             <Main>
                 <Box>
-                    {isLoading ? <Loader/> : <MovieList movies={movies}/>}
+                    {isLoading && <Loader />}
+                    {errorMsg && <ErrorMessage message={errorMsg} />}
+                    {!isLoading && !errorMsg && <MovieList movies={movies} />}
                 </Box>
                 <Box>
                     <WatchedSummary watched={watched}/>
@@ -93,6 +109,12 @@ const Loader = () => {
     return (
         <p className="loader">Loading....</p>
     )
+}
+
+const ErrorMessage = ({message}) => {
+    return (
+        <p className="error"><span>⛔</span>{message}</p>
+    );
 }
 
 const NavBar = ({children}) => {
