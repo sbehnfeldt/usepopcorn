@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const tempMovieData = [
     {
@@ -56,9 +56,11 @@ const App = () => {
     const [movies, setMovies]   = useState(tempMovieData);
     const [watched, setWatched] = useState(tempWatchedData);
 
-    fetch(`http://www.omdbapi.com/?s=interstellar&apikey=${apiKey}`)
-        .then((res) => res.json()).then((data) => console.log(data));
-
+    useEffect(() => {
+        fetch(`http://www.omdbapi.com/?s=interstellar&apikey=${apiKey}`)
+            .then((res) => res.json())
+            .then((data) => setMovies(data.Search));
+    }, []);
 
     return (
         <>

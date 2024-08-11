@@ -73,3 +73,7 @@ Code can be executed at any of these points with `useEffect()`
 ### Lesson 142. How NOT to Fetch Data in React
 NOT from within in the component.
 This would be a side effect, which would re-render the component, which would re-fetch the data....
+
+### Lesson 143. useEffect to the Rescue
+Where to register effects to safely write side-effects.
+`useEffect(function, dependenciesArray);`
