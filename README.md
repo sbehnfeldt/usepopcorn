@@ -85,13 +85,23 @@ Examples: Data fetching, setting up subscriptions, setting up timers, manually a
 May be made in event handlers or in React `useEffect()`.
 `useEffect()` may be used after initial render or after subsequent re-renders 
 and is used to keep a component synchronized with some external system.
-But event handlers are the preferred way of creating side effects. (Why?) 
+But event handlers are the preferred way of creating side effects. (Why?)
 
 ### Lesson 145. Using an async Function
+
 `useEffect()` callbacks are asynchronous (to prevent race conditions)
 so the callback function to `useEffect()` may not return a Promise.
 So instead create a new function with an async function inside.
 NOTE: In React's strict mode, effects run TWICE in development mode.
 
 ### Lesson 147. Handling Errors
+
 When using async functions, assume things can go wrong and handle them.
+
+### Lesson 148. The useEffect Dependency Array
+
+By default, effects run after every render (which we seldom want).
+Prevent that by passing a dependency array which specifies when to run the effect.
+Dependencies: every state variable or prop used inside the effect
+
+### Lesson 149. Synchronizing Queries with Movie Data
