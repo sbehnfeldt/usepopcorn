@@ -69,3 +69,7 @@ import {PropTypes} from "prop-types";
 2) Re-render: Happens when state, props or context changes or when parent re-renders
 3) Unmount: instance destroyed and removed, state and props destroyed
 Code can be executed at any of these points with `useEffect()`
+
+### Lesson 142. How NOT to Fetch Data in React
+NOT from within in the component.
+This would be a side effect, which would re-render the component, which would re-fetch the data....
