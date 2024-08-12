@@ -105,3 +105,8 @@ Prevent that by passing a dependency array which specifies when to run the effec
 Dependencies: every state variable or prop used inside the effect
 
 ### Lesson 149. Synchronizing Queries with Movie Data
+
+### Lesson 150. Selecting a Movie
+
+Add onClick handler to the <MovieListItem> components;
+display <MovieDetail> (placeholder) component when clicked.
