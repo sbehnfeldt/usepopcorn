@@ -110,3 +110,11 @@ Dependencies: every state variable or prop used inside the effect
 
 Add onClick handler to the <MovieListItem> components;
 display <MovieDetail> (placeholder) component when clicked.
+
+### Lesson 151. Loading Movie Details
+
+When a movie is selected from the search results list (left-hand pane),
+fetch the details from that movie via the OMDB API
+and use them to populate a MovieDetails component (right-hand pane).
+Put this functionality inside a useEffect() call with a dependency of the OMDB ID.
+
