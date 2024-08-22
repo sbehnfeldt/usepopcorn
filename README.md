@@ -141,3 +141,7 @@ This makes cleanup easier.
 Component variables still available to cleanup function even after component unmounts and is destroyed
 due to the way JavaScript closures work.
 
+### Lesson 156: Cleaning Up Data Fetching
+
+Return a cleanup function from the "search OMDB API" effect to cancel any outstanding lookup call
+before executing a new one.

@@ -37,11 +37,15 @@ const App = () => {
         setWatched(watched.filter((el) => el.imdbID !== imdbID));
     }
 
+    // When value in Search Box component changes (ie, due to user typing),
+    // search the OMDB for movies with the specified term
     useEffect(() => {
+        const controller = new AbortController();
+
         async function fetchMovies() {
             try {
                 setIsLoading(true);
-                const res = await fetch(`http://www.omdbapi.com/?s=${query}&apikey=${apiKey}`);
+                const res = await fetch(`http://www.omdbapi.com/?s=${query}&apikey=${apiKey}`, {signal: controller.signal});
                 if (!res.ok) {
                     throw new Error('Something went wrong while fetching the movies')
                 }
@@ -50,9 +54,12 @@ const App = () => {
                     throw new Error('No matches found');
                 }
                 setMovies(data.Search);
+                setErrorMsg('');
             } catch (err) {
                 console.error(err);
-                setErrorMsg(err.message);
+                if (err.name !== 'AbortError') {
+                    setErrorMsg(err.message);
+                }
             } finally {
                 setIsLoading(false);
             }
@@ -65,7 +72,14 @@ const App = () => {
         }
         fetchMovies();
 
+
+        // Cancel any outstanding fetch request before the effect re-executes
+        return (() => {
+            controller.abort();
+        });
+
     }, [query]);
+
 
     return (
         <>
