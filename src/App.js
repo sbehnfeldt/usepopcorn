@@ -16,7 +16,7 @@ const App = () => {
     const [watched, setWatched]       = useState([]);
     const [isLoading, setIsLoading]   = useState(false);
     const [errorMsg, setErrorMsg]     = useState('');
-    const [query, setQuery]           = useState("inception");
+    const [query, setQuery]           = useState("");
     const [selectedId, setSelectedId] = useState(null);
 
     // When a user clicks a movie in the Search Results list,
@@ -70,6 +70,8 @@ const App = () => {
             setMovies([]);
             return;
         }
+
+        handleCloseMovie();
         fetchMovies();
 
 

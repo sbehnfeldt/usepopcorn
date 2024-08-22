@@ -38,6 +38,19 @@ const MovieDetails = ({selectedId, watched, onCloseMovie, onAddWatched}) => {
         onCloseMovie();
     }
 
+    useEffect(() => {
+        function onEscapeKeyDown(e) {
+            if (e.code === 'Escape') {
+                onCloseMovie();
+            }
+        }
+
+        document.addEventListener('keydown', onEscapeKeyDown);
+
+        return (() => {
+            document.removeEventListener('keydown', onEscapeKeyDown);
+        });
+    }, [onCloseMovie]);
 
     // When the movie title changes, change the HTML page title accordingly
     useEffect(() => {
