@@ -108,7 +108,7 @@ Dependencies: every state variable or prop used inside the effect
 
 ### Lesson 150. Selecting a Movie
 
-Add onClick handler to the <MovieListItem> components;
+Add onClick handler to the <MovieList> components;
 display <MovieDetail> (placeholder) component when clicked.
 
 ### Lesson 151. Loading Movie Details
