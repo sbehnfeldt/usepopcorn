@@ -47,7 +47,13 @@ const MovieDetails = ({selectedId, watched, onCloseMovie, onAddWatched}) => {
             document.title = 'usePopcorn';
         }
 
+        // Return cleanup function
+        return () => {
+            document.title = 'usePopcorn';
+        }
+
     }, [title]);
+
 
     // When the selectedId changes, fetch OMDB data for that movie
     useEffect(() => {

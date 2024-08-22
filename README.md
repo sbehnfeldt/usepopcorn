@@ -119,3 +119,25 @@ and use them to populate a MovieDetails component (right-hand pane).
 Put this functionality inside a useEffect() call with a dependency of the OMDB ID.
 
 ### Lesson 153: Adding a New Effect: Changing Page Title
+
+### Lesson 154: The useEffect Cleanup Function
+
+Cleanup function is a function we can return from an effect.
+Executes before the effect is executed again, and also when component unmounts.
+Necessary whenever the side effect keeps happening
+after the component has been re-rendered or unmounted, to prevent race conditions.
+For example:
+
+* HTTP request -> cancel request
+* API subscription -> cancel subscription
+* Start timer -> stop timer
+* Add event listener -> remove listener
+
+Each useEffect() should do only one thing, handle only one side effect.
+This makes cleanup easier.
+
+### Lesson 155: Cleaning Up the Title
+
+Component variables still available to cleanup function even after component unmounts and is destroyed
+due to the way JavaScript closures work.
+
