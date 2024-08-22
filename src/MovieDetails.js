@@ -38,6 +38,18 @@ const MovieDetails = ({selectedId, watched, onCloseMovie, onAddWatched}) => {
         onCloseMovie();
     }
 
+
+    // When the movie title changes, change the HTML page title accordingly
+    useEffect(() => {
+        if (title) {
+            document.title = `Movie | ${title}`;
+        } else {
+            document.title = 'usePopcorn';
+        }
+
+    }, [title]);
+
+    // When the selectedId changes, fetch OMDB data for that movie
     useEffect(() => {
         const getMovieDetails = async () => {
             setIsLoading(true);
@@ -49,9 +61,9 @@ const MovieDetails = ({selectedId, watched, onCloseMovie, onAddWatched}) => {
         getMovieDetails();
     }, [selectedId]);
 
+
     return (
         <div className="details">
-            <p>Rating: </p>
             {isLoading ? <Loader/> : <>
                 <header>
                     <button className="btn-back" onClick={onCloseMovie}>

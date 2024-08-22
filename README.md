@@ -118,3 +118,4 @@ fetch the details from that movie via the OMDB API
 and use them to populate a MovieDetails component (right-hand pane).
 Put this functionality inside a useEffect() call with a dependency of the OMDB ID.
 
+### Lesson 153: Adding a New Effect: Changing Page Title
